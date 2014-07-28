@@ -1,0 +1,79 @@
+1. O algoritmo A usa 100n operações enquanto o algoritmo B usa 3n² operações. 
+Determine n para o qual A é melhor do que B para n ≥ no. Descreva qual 
+algoritmo deve ser indicado e justifique sua indicação.
+
+
+100n >= 3n²
+3n² - 100n >= 0 
+
+delta = b² - 4*a*c
+delta = (-100)² - 4*3*0
+delta = 10000
+
+r_delta = 100
+
+n = (-b +- r_delta)/2*a
+
+n1 = (-(-100) + 100)/2*3
+n1 = 200/6
+n1 = 100/3
+n1 = 33,3...
+
+n2 = (-b - r_delta)/2*a
+n2 = (-(-100) - 100)/2*3
+n2 = (100 -100)/6
+n2 = 0/6
+n2 = 0
+
+para entradas maiores que 33, o algoritmo A tem melhor desempenho que o B, pois realiza menos operações para o mesmo número de entradas já que, depois desse ponto, o crescimento de B ultrapassa o de A.
+
+
+7.
+Considere uma função que retorne o menor e o maior elementos de um array de n elementos com a assinatura a seguir:
+1.
+void
+minmax(int *a, int tamanho, int *menor, int *maior);
+
+2.
+E duas implementações diferentes A e B
+
+A
+minmax(int *a, int tamanho, int *menor, int *maior) { 
+	int min, max, i; 
+	min = a[0]; // 1 atribuição = 1
+	max = a[0]; // 1 atribuição = 1
+	for (i = 0; i < tamanho ; i++) { // atribuição e verificação + incremento e verificação = 4n
+		if (a[i] < min) min=a[i]; // verificação e atribuição = 2n
+		if (a[i] > max) max=a[i]; // verificação e atribuição = 2n
+	}
+	*menor = min; // atribuição = 1
+	*maior = max; // atribuição = 1
+}
+
+operações:
+ 2 + 4n + 2n + 2n + 2 = 8n + 4
+complexidade:
+	O(n)
+
+B
+void minmax(int *a, int tamanho, int *menor, int *maior){
+	int min, max,i;
+	min = a[0]; // 1 atribuição = 1
+	max = a[0]; // 1 atribuição = 1
+	for (i = 0; i < tamanho ; i++){ // atribuição e verificação + incremento e verificação = 4n
+		if (a[i] < min) // verificação e atribuição = 2n
+			min = a[i];
+		else if (a[i] > max)
+		
+			max = a[i]; // (só é feita se a primeira condição não for obedecida)
+	}
+	*menor = min;  // atribuição = 1
+	*maior = max;  // atribuição = 1
+}
+
+operações:
+2 + 4n + 2n + 2 = 6n + 2
+complexidade
+ O(n)
+
+B é melhor pois, apesar de ter a mesma complexidade que  A, faz é menos operações para o mesmo numero n de entradas.

@@ -1,0 +1,61 @@
+1. O que é um ponteiro? 
+Ponteiro é um mecanismo de acesso ao a variáveis sem referenciá-las diretamente.
+
+2. Qual o operador que retorna o endereço de uma variável?
+O operador de endereço &
+
+3. Como declaramos um ponteiro?
+Primeiramente, indicando-se o tipo do conteúdo do endereço de memória ao qual o ponteiro faz referência, seguido do sinal * e do nome do ponteiro.
+
+4. Considere uma variável chamada ptr, do tipo ponteiro. Como podemos acessar e modificar o conteúdo do endereço apontado por ptr?
+*p.
+
+5. O que será impresso pelo programa abaixo?
+int main(int argc, char **argv){
+	int	a, b;
+	int *pa, *pb;
+	a = 10;
+	b = 20;
+	pa = &a;
+	pb = &b;
+	*pa = *pb * 2;
+	
+	printf ("%d, %d\n", a,b);
+	
+	return 	0;
+}
+
+saída:
+40, 20
+
+
+6. O que será impresso pelo programa abaixo? Por que?
+int main(int argc, char **argv) {
+	int a,b,c;
+	int *ponteiro;
+	a = 10;
+	b = 20;
+	c = 30;
+
+	ponteiro = &b;
+	ponteiro = ponteiro + 1;
+	*ponteiro = 50;
+	
+	printf("Os valores são: %d, %d e %d", a, b, c);
+	
+	return 0;
+}
+
+saída:
+50, 20, 30
+Primeiramente, o ponteiro aponta para b, entretanto, como o seu conteúdo é incrementado em uma unidade, ele aponta para o próximo endereço de memória maior, que é o de a, em seguida, o conteúdo do endereço apontado por "ponteiro" é modificado para 50. Ou seja, o valor de a é alterado para 50.
+
+
+8.
+letra c.
+
+9.
+A função recebe dois ponteiros para strings como parâmetros e deixa e "copia" a primeira na segunda string.
+
+10. 
+letra b.

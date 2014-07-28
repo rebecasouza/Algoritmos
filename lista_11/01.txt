@@ -1,0 +1,252 @@
+1.
+Um algoritmo leva 2s
+para terminar com uma entrada de tamanho 100. Qual o tamanho da entrada para que o algoritmo
+termine em 10, 30 e 60 segundos quando a ordem de complexidade for:
+
+a) O(n)
+	100 = 2        100 = 2       100 = 2 
+	  n = 10         n = 30        n = 60
+ 	2n = 100*10    2n = 30000    2n = 6000
+	n = 1000/2     n = 3000/2n   n = 6000/2
+	n = 500        n = 1500			 n = 3000
+
+b) O(n²)
+	100² = 2             100² = 2              100² = 2             
+	  n² = 10              n² = 30               n² = 60
+	2n² = 100²*10        2n² = 100²*30         2n² = 100²*60
+	n² = (10000*10)/2    n² = (10000*30)/2     n² = (10000*60)/2 
+	n² = 10000*5         n² = 10000*15         n² = 10000*30 
+	n = raiz(50000)      n = raiz(150000)      n = raiz(300000)
+	n = 223 aprox.       n = 387 aprox. 			 n = 547 aprox.
+
+c) O(logn)
+//nessa questão usa-se a porpriedade do expoente e a igualdade de log.
+ Sempre que um numero multiplica um log, ele pode ser representado como o expoente do 
+ logaritmando. Ex.:
+   a*logx = log(x^a)
+   2logx = logx²
+ se dois logaritmos são iguais e possuem a mesma base, então seus logaritmandos são iguais. Ex.:
+  logx = log3
+     x = 3
+
+  log100 = 2                 log100 = 2              log100 = 2             
+	  logn = 10                  logn = 30               logn = 60
+ 2*logn = 10*log100          2logn = 30*log100       2logn = 60*log100
+ logn = 10*log100/2          logn = 30*log100/2      logn = 60*log100/2 
+ logn = 5*log100             logn = 15*log100        logn = 30*log100 
+ logn = log(100⁵)            logn = log(100¹⁵)       logn = log(100³⁰)
+ n = 100⁵ 			             n = 100¹⁵               n = 100³⁰
+
+d) O(nlogn)
+ 100log100 = 2                100log100 = 2                   100log100 = 2             
+	   nlogn = 10                   nlogn = 30                      nlogn = 60
+ 2*nlogn = 10*100log100      2nlogn = 30*100log100          2nlogn = 60*100log100
+ nlogn = 10*100log100/2      nlogn = 30*100log100/2         nlogn = 60*100log100/2 
+ nlogn = 5*100log100         nlogn = 15*100log100           nlogn = 30*100log100 
+ nlogn = 500log100           log(n^n) = 10500log100         log(n^n) = 3000log100   
+ log(n^n) = log100⁵⁰⁰        log(n^n) = log100¹⁵⁰⁰          log(n^n) = log100³⁰⁰⁰       
+ (n^n) = 100⁵⁰⁰              (n^n) = 100¹⁵⁰⁰                (n^n) = 100³⁰⁰⁰ 
+ (n^n) = 10¹⁰⁰⁰              (n^n) = 10³⁰⁰⁰                                          
+
+
+e) O(2^n)
+  2¹⁰⁰ = 2                 2¹⁰⁰ = 2                  2¹⁰⁰ = 2             
+	 2^n = 10                 2^n = 30                  2^n = 60
+	2*2^n = 10*2¹⁰⁰          2*2^n = 10*2¹⁰⁰           2*2^n = 10*2¹⁰⁰ 
+	2^n = (10*2¹⁰⁰)/2        2^n = (30*2¹⁰⁰)/2         2^n = (10*2¹⁰⁰)/2 
+	2^n = 5*2¹⁰⁰             2^n = 15*2¹⁰⁰             2^n = 5*2¹⁰⁰ 
+  log(2^n) = log(5*2¹⁰⁰)   log(2^n) = log(15*2¹⁰⁰)   log(2^n) = log(30*2¹⁰⁰)                                       
+  n = log5 + log(2¹⁰⁰)     n = log15 + log(2¹⁰⁰)     n = log30 + log(2¹⁰⁰)                                        
+  n = 2,3 + 100            n = 3,9 + 100             n = 4,9 + 100                            
+  n = 102,3                n = 103,9                 n = 105,9
+
+
+
+2.
+Um algoritmo leva 0,5 ms para terminar com uma entrada de
+tamanho 100. Em quanto tempo o algoritmo termina quando a
+entrada for de tamanho 10.000 e a ordem de complexidade for:
+a) O(n)
+	  100 = 0,0005
+	10.000 = t
+	100*t = 10000*0,0005
+	t = 5/100
+	t = 0,05 s
+
+b) O(n²)
+	100² = 0,0005
+	10.000² = t
+	10000*t = 100.000.000*0,0005
+	t = 50000/10000
+	t = 5 s
+
+c) O(logn)
+	log100 = 0,0005
+	log10.000 = t
+	log100*t = 0,0005log10.000
+  log(10²)*t = 0,0005log(10⁴)
+  2log10*t = 0,0005*4log10
+  t = (4log10*0,0005)/2log10
+  t = 2*0,0005
+  t = 0,001 s
+	
+
+d) O(nlogn)
+	100log100 = 0,5
+	10.000log10.000 = t
+	100log100*t = 10.000log10.000*0,0005
+	100log100*t = 5log10.000
+	100log(10²)*t = 5log(10⁴)
+	100*2log10*t = 5*4log10
+	200log10*t = 20log10
+	t = (20log10)/200log10
+	t = 0,1 s
+
+e) O(2^n)
+	  2¹⁰⁰ = 0,5
+	2¹⁰⁰⁰⁰ = t
+	2¹⁰⁰*t =  2¹⁰⁰⁰⁰*0,5                       
+	t = (2¹⁰⁰⁰⁰*0,5)/2¹⁰⁰
+	t = 2⁽¹⁰⁰⁰⁰⁻¹⁰⁰⁾*0,5
+	t = 2⁹⁹⁰⁰*0,5
+
+3.
+Uma algoritmo realiza 2n+2 operações primitivas até terminar, no
+pior caso. Qual sua complexidade, considerando a notação O. Por
+que? 
+
+O(n) porque a complexidade desse algoritmo é uma função linear do número de entradas.
+
+
+4. Ordene as funções a seguir pela ordem de complexidade: n² , n, logn, 2^n , nlogn, n³
+
+ordem crescente
+
+logn, nlogn, n, n², n³, 2^n
+
+
+5. Considere A um array ordenado de n números inteiros. 
+1. Escreva um algoritmo que receba
+A (array) e n (inteiro) como parâmetros e retorne o índice em
+A onde n se encontra.
+2. Qual a quantidade de operações no pior caso?
+3. Qual a complexidade do algoritmo expressada na Notação O (big Oh)?
+
+
+Algoritmo A(a[], n):
+ 	Entrada: 
+ 		array e inteiro, a[] e n
+ 	Saida: 
+ 		inteiro contendo a posição do numero no array
+ Declare: 
+ 	Inteiros i, posição 
+	Início  
+		Para i de 0  até n - 1 faça    // 2(n - 1)
+  		Se (a[i] = n) então          // 2(n - 1)
+   			posição <-- i;             // 1
+   		Fim se
+  	Fim para
+  	Retorne posição               // 1
+	Fim
+
+número de operações
+2n - 2 + 2n - 2 + 2 
+4n - 2
+
+complexidade
+O(n)
+
+6. Sobre o algoritmo abaixo, 
+
+Algoritmo
+A(a, n):
+Entrada: dois inteiros, a e n
+Saída: ?
+k ← 0 
+b ← 1
+enquanto (k < n) faça
+Início
+k ← k + 1
+b ← b ∗ a
+Fim
+retorne b
+
+responda:
+1.
+Qual a saída do algoritmo?
+a^(n - 1)
+ele vai multiplicar a por a n-1 vezes.
+2.
+Qual seu tempo de execução, expressado usando a notação O(big-Oh)
+O(n)
+
+7.
+Sobre o algoritmo abaixo, 
+Algoritmo
+B (a, n):
+Entrada: dois inteiros, a e n
+Saída: ?
+k ← n
+b ← 1
+c ← a
+enquanto
+(k > 0) faça
+se (k%2 = 0) então
+Início
+k ← k/2
+c ← c ∗ c
+Fim
+senão
+Início
+k ← k − 1
+b ← b ∗ c
+Fim
+retorne
+b
+
+responda:
+1. Qual a saída do algoritmo?
+a^nlogn
+
+2. Qual seu tempo de execução, expressado usando a notação O (big-Oh) 
+logn
+
+8. Forneça uma estimativa do tempo de execução usando a notação O em função de n para as seguintes funções:
+
+a)
+Algoritmo A
+int algoA(int n){
+ 	int i,a=1;
+		for (i = 1 ; i <= n ; i <= 1){ 	n vezes
+		a += i;
+		}
+	return a;
+}
+O(n)
+
+b)
+Algoritmo B
+int AlgoB(int n) {
+	int i, a=0;
+	int b = n/20;
+	for (i = 0 ; i < n/2 ; i+=b) { n vezes
+		a += i;
+	}
+	return a;
+}
+O(n)
+
+c)
+Algoritmo C
+int AlgoC(int n){
+	int i,j,x=1,y;
+	for (i = 0 ; i < n ; i++){ n vezes
+		y = 2;
+		for (j = 1 ; j < i ; j++){ n vezes
+			y*=j;
+		}
+		x*=y;
+	}
+	return x;
+}
+O(n²)
